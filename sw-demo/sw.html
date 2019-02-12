@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style type="text/css">
+      .wrap{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }      
+
+      .line{
+        width: 100px;
+        height: 3px;
+        background-image: linear-gradient(90deg, rgba(255,193,179,0.00) 2%, #d8d8d8 98%);
+      }
+
+      .dot{
+        width: 10px;
+        height: 10px;
+        background-color:#d8d8d8;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 id="message"></h1>
+    <div class="wrap">
+      <div class="line"></div>
+      <div class="dot"></div>
+    </div>
+
+    <button id="update">更新</button>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker
+            .register('/sw.js')
+            .then(function(registration) {
+              console.log('register');
+              // console.log(registration.scope);
+            })
+            .catch(function(err) {
+              // console.log(err);
+            });
+        });
+      }
+    </script>
+    <script src="./common.js"></script>
+    <script>
+      document
+        .querySelector('#update')
+        .addEventListener('click', function(event) {
+          event.preventDefault();
+          // 创建 caches 套件
+          caches.open('my-cache-v1').then(function(cache) {
+            fetch('/list.json')
+              .then(function(response) {
+                // 返回 json 对象
+                return response.json();
+              })
+              .then(function(data) {
+                console.log(data);
+                data.map(function(file) {
+                  cache.delete(file);
+                });
+                // 缓存指定路由
+                cache.addAll(data);
+              });
+          });
+        });
+    </script>
+  </body>
+</html>

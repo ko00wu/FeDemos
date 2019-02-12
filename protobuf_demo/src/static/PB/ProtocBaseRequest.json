@@ -1,0 +1,25 @@
+{
+  "nested": {
+    "BaseRequest": {
+      "fields": {
+        "token": {
+          "type": "string",
+          "id": 1
+        },
+        "p": {
+          "type": "string",
+          "id": 2
+        },
+        "sign": {
+          "type": "string",
+          "id": 3
+        },
+        "SpareParameter": {
+          "keyType": "string",
+          "type": "string",
+          "id": 4
+        }
+      }
+    }
+  }
+};

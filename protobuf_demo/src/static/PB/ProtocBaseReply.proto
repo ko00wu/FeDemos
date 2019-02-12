@@ -1,0 +1,2880 @@
+syntax = "proto3";
+message Image {
+  bytes imageBytes = 1;
+  string imageName = 2;
+  string suffix = 3;
+  map<string, string> SpareParameter = 4;
+  repeated Image imageList = 5;
+}
+message PageInfo {
+  int64 countNum = 1;
+  int32 pages = 2;
+  int32 pageIndex = 3;
+  int32 pageSize = 4;
+  int32 offset = 5;
+  map<string, string> SpareParameter = 10;
+}
+message UserInfo {
+  int64 userId = 1;
+  string userName = 2;
+  string userNamePhonetic = 3;
+  string userNamePhoneticHead = 4;
+  string loginId = 5;
+  string loginPass = 6;
+  string loginPass2 = 7;
+  int32 groupId = 8;
+  int64 spaceId = 9;
+  int32 status = 10;
+  int64 accessDate = 11;
+  string phoneNo = 12;
+  int64 registerDate = 13;
+  string email = 14;
+  string sex = 15;
+  string accessIp = 16;
+  string registerIp = 17;
+  int64 userHeadPicId = 18;
+  int64 registerTime = 19;
+  int32 authLevel = 20;
+  int32 faceLevel = 21;
+  string userSignature = 22;
+  int32 registerType = 23;
+  int32 Privacy = 24;
+  string clentId = 25;
+  int32 clentType = 26;
+  int32 focus = 27;
+  int32 fans = 28;
+  int32 sell = 29;
+  int32 buy = 30;
+  int32 receive = 31;
+  int32 send = 32;
+  bool isFocus = 33;
+  bool isBlack = 34;
+  string channel = 35;
+  PictureInfo userHead = 36;
+  repeated UserInfo userList = 37;
+  int32 orderUnpay = 38;
+  int32 orderUnShip = 39;
+  int32 orderUnReceive = 40;
+  int32 orderUnComment = 41;
+  int32 orderRefunds = 43;
+  int32 messageCount = 44;
+  bool isLive = 45;
+  //总收藏数（包括产品，店铺，豆友说等收藏）
+  int32 allCollectionCount=46;
+  //回放数量
+  int32 liveVideoCount=47;
+  //豆友说数量
+  int32 articleCount=48;
+  //app版本
+  string appversion=49;
+  //微信开放ID
+  string openId=50;
+}
+message PictureInfo {
+  int64 picId = 1;
+  string picurl = 2;
+  string thumPicurl = 3;
+  string iconPicurl = 4;
+  string waterPicurl = 5;
+  repeated PictureInfo pictureList = 6;
+}
+message ActiviteInfo {
+  int32 activityId = 1;
+  int64 addTime = 2;
+  int64 startTime = 3;
+  int64 endTime = 4;
+  int32 modifyId = 5;
+  string activityInfo = 6;
+  repeated ActiviteInfo activiteInfoList = 7;
+}
+message SkuOptionInfo {
+  int64 optionalId = 1;
+  string optionalName = 2;
+  int64 skuId = 3;
+  repeated SkuOptionInfo skuOptionInfoList=4;
+}
+message ProductSkuOption {
+  int64 psoId = 1;
+  int64 psId = 2;
+  int64 optionalId = 3;
+  SkuOptionInfo skuOptionInfo = 4;
+  repeated ProductSkuOption productSkuOptionList = 5;
+}
+message AddressInfo {
+  int32 addressId = 1;
+  int32 addressProvinces = 2;
+  string addressProvincesInfo = 3;
+  int32 addressCity = 4;
+  string addressCityInfo = 5;
+  int32 addressDistrict = 6;
+  string addressDistrictInfo = 7;
+  string addressStreet = 8;
+  string receiveName = 9;
+  string receivePhone = 10;
+  string addressPostcode = 11;
+  int64 userId = 12;
+  int32 defaulted = 13;
+  repeated AddressInfo addressList = 14;
+  //店铺ID
+  int64 spaceId=15;
+  //发件人姓名
+  string consignorName=16;
+  //收件人姓名
+  string consignorPhone=17;
+}
+message Agent{
+  int32 agentId = 1;
+  //真实姓名
+  string aGAgentName = 2;
+  //联系方式
+  string aGPhone = 3;
+  //地区ID
+  int32 areaId = 4;
+  //地区名字
+  string areaName = 5;
+  //代理编号（账号）
+  string aGNumber = 6;
+  //登录密码
+  string loginPass = 7;
+  //上级代理Id
+  int32 aGParentId = 8;
+  //状态,0不可用,1可用
+  int32 aGStatus = 9;
+  //注册时间
+  int64 registerTime = 10;
+  //代理商列表
+  repeated Agent agentList = 11;
+  //二维码图片ID
+  int64 qrcodePicId=12;
+  //二维码图片地址
+  PictureInfo pictureInfo=13;
+}
+message AppVersion {
+  int32 versionId = 1;
+  string version = 2;
+  int32 appenv = 3;
+  int64 addTime = 4;
+  string downloadUrl = 5;
+  string updateContent = 6;
+  string isUpdate = 7;
+  repeated AppVersion appVersion = 8;
+}
+message AreaInfo {
+  int32 areaId = 1;
+  string areaName = 2;
+  int32 areaParentId = 3;
+  int32 areaSort = 4;
+  int32 areaDeep = 5;
+  string areaRegion = 6;
+  repeated AreaInfo areaList = 7;
+  //是否选中
+  bool isSelect=8;
+}
+message BannerInfo {
+  int64 bannerId = 1;
+  string bannerContent = 2;
+  string redirectUrl = 3;
+  int32 redirectType = 4;
+  int64 picId = 5;
+  int32 bannerType = 6;
+  int64 commiterId = 7;
+  int64 commiterTime = 8;
+  int64 modifierId = 9;
+  int64 modifierTime = 10;
+  int32 status = 11;
+  int32 areaId = 12;
+  int32 orderNum = 13;
+  PictureInfo pictureInfo = 14;
+  repeated BannerInfo bannerList = 15;
+  //分享地址
+  string shareUrl=16;
+  //分享地址
+  string shareDesc=17;
+}
+message CameraInfo {
+  int64 cameraId = 1;
+  string cameraName = 2;
+  string macAddress = 3;
+  string cameraPass = 4;
+  int32 cameraOnline = 5;
+  int32 cameraPermission = 6;
+  int32 cameraLiveStatus = 7;
+  int32 liveFps = 8;
+  int32 liveKbps = 9;
+  string liveResolution = 10;
+  string timingLive = 11;
+  string timingLiveStart = 12;
+  string timingLiveEnd = 13;
+  int64 spaceId = 14;
+  int32 cameraType = 15;
+  string cameraNo = 16;
+  PictureInfo userHead = 17;
+  string spaceName = 18;
+  int64 addTime = 19;
+  int64 userId = 20;
+  repeated CameraInfo cameraList = 21;
+  bool isCollection = 22;
+}
+message CameraReply {
+  CameraInfo cameraInfo = 1;
+  PageInfo page = 2;
+}
+message CartInfo {
+  int64 cartId = 1;
+  int64 userId = 2;
+  int64 productId = 3;
+  int64 productNum = 4;
+  string productName = 5;
+  int64 inventoryId = 6;
+  int64 createTime = 7;
+  int64 spaceId = 8;
+  ProductInventory productInventory = 9;
+  int32 validity = 10;
+  repeated CartInfo cartInfoList = 11;
+  PictureInfo productPic = 12;
+  bool isSelect = 13;
+}
+message CartReply {
+  SpaceInfo spaceInfo = 1;
+  repeated CartInfo cartInfoList = 2;
+  repeated CartReply cartReplyList = 3;
+  bool isSelect = 4;
+  double feight = 5;
+}
+message CashInfo {
+  int32 recordId = 1;
+  double cashRmb = 2;
+  int32 cashType = 3;
+  int32 stauts = 4;
+  string realName = 5;
+  string bankCard = 6;
+  string useraccount = 7;
+  int32 verifyUserId = 8;
+  int64 userId = 9;
+  string rejectReason = 10;
+  int64 commitTime = 11;
+  int64 verifyTime = 12;
+  double cashFee = 13;
+  repeated CashInfo cashInfoList = 14;
+  int64 cardId=15;
+  //提现银行卡信息
+  UserBankCard userBankCard=16;
+}
+message UserPayLogReply{
+ //交易记录列表
+  	UserPayLog userPayLog=1;
+  	//分页信息
+  	PageInfo page=2;
+ 	//收入金额
+  	double incomePrice=3;
+  	//支出金额
+  	double defrayPrice=4;
+}
+message UserPayLog{
+  //用户ID
+  int64 userId = 1;
+  //金额
+  double amount = 2;
+  //日志时间
+  int64 logTime = 3;
+  //日志类型 1.订单 2.红豆币转余额 3.购买红豆币 4.余额支付
+  int64 logType = 4;
+  //记录所关联数据的主键
+  int64 objectId=5;
+  //记录所关联的描述
+  string description=6;
+  //列表
+  repeated UserPayLog userPayLog = 7;
+  //转换值（只有红豆币转余额用得到）
+  int64 exchangeValue=8;
+}
+message CashReply {
+  CashInfo cashInfo = 1;
+  PageInfo page = 2;
+}
+message CommentReply {
+  ProductComment productComment = 1;
+  PageInfo page = 2;
+}
+message FacturerMerchant{
+  int64 facturerMerchantId = 1;
+
+  //厂家userId
+  int64 userId = 2;
+
+  //商家userId
+  int64 merchantUserId = 3;
+
+  //厂家店铺ID
+  int64 suSpaceId = 4;
+
+  //厂家店铺号
+  string suSpaceNum = 5;
+
+  //厂家店铺名字
+  string suSpaceName = 6;
+
+  //商家店铺ID
+  int64 meSpaceId = 7;
+
+  //商家店铺号
+  string meSpaceNum = 8;
+
+  //店铺名字
+  string meSpaceName = 9;
+
+  //是否批量同步（1是）（0否）
+  int32 status = 10;
+
+  //创建时间
+  int64 createTime = 11;
+
+  repeated FacturerMerchant facturerMerchantList=12;
+}
+message ExpressCompany {
+  int32 ecId = 1;
+  string ecName = 2;
+  int32 ecStatus = 3;
+  string ecCode = 4;
+  string ecLetter = 5;
+  int32 ecOrder = 6;
+  string ecUrl = 7;
+  int32 ecZtState = 8;
+  repeated ExpressCompany expressCompanyList = 9;
+}
+message HelpQuestions {
+  int32 questionsId = 1;
+  string auestions = 2;
+  string answer = 3;
+  int64 addTime = 4;
+  int64 orderNum = 5;
+  int32 status = 6;
+  repeated HelpQuestions helpQuestionsList = 7;
+}
+message HMDayClassify{
+  //
+  int32 classifyId = 1;
+  //名称
+  string classifyName = 2;
+  //标题
+  string classifyTitle = 3;
+  //最后编辑时间
+  int64 editTime = 4;
+  //图片
+  int64 picId = 5;
+  //排序
+  int32 sortNum = 6;
+  //0不可用  1可用
+  int32 status = 7;
+  //首页店铺分类列表
+  repeated HMDayClassify HMDayClassifyList = 8;
+  //图片信息
+  PictureInfo pictureInfo=9;
+  //在线数
+  int64 onLineCount = 10;
+  //图片
+  int64 iconPicId = 11;
+  //图标图片信息
+  PictureInfo iconPictureInfo=12;
+  //推荐店铺直播信息
+  SpaceInfo spaceInfo=13;
+  //主题颜色
+  string themeColor=14;
+  //是否置顶
+  int32 top = 15;
+}
+message PatchInfo{
+  //需要更新的版本ID
+  int32 versionId = 1;
+  //补丁版本
+  string patchVersion = 2;
+  //补丁地址
+  string patchUrl = 3;
+  //补丁添加时间
+  int64 addTime = 4;
+  //补丁类型：1 android  2 苹果
+  int32 patchType = 5;
+  //需要更新的手机型号
+  string phoneModel = 6;
+  //补丁列表
+  repeated PatchInfo patchInfo = 7;
+  //渠道
+  string channel =8;
+}
+message ArticleInfoReply {
+  //文章信息
+  ArticleInfo articleInfo = 1;
+  //分页信息
+  PageInfo pageInfo = 2;
+}
+message ArticleCommentReply {
+  //评论列表
+  ArticleComment articleComment = 1;
+  //分页信息
+  PageInfo pageInfo = 2;
+}
+message ArticleComment{
+  //评论ID
+  int64 commentId = 1;
+  //文章ID
+  int64 articleId = 2;
+  //评论内容
+  string commentContent = 3;
+  //评论人ID
+  int64 userId = 4;
+  //评论人昵称
+  string userName = 5;
+  //被评论人ID
+  int64 toUserId = 6;
+  //被评论的评论ID
+  int64 toCommentId = 7;
+  //评论时间
+  int64 addTime = 8;
+  //来源 1qq 2微信 3微博
+  int32 source = 9;
+  //状态0不可用 1可用
+  int32 status = 10;
+  //管理员ID
+  int32 adminId = 11;
+  //管理员名称
+  int32 adminName = 12;
+  //管理员操作时间
+  int64 adminTime = 13;
+  //评论列表
+  repeated ArticleComment articleCommentList = 14;
+  //回复数
+  int64 reply = 15;
+  //最新回复人的昵称
+  string replyUserName = 16;
+  //评论人的用户信息
+  UserInfo userInfo = 17;
+}
+message AudioInfo {
+
+  //主键
+  int64 audioId = 1;
+
+  //标题
+  string audioTitle = 2;
+
+  //bgm下载地址
+  string audioUrl = 3;
+
+  //bgm状态
+  int32 audioStatus = 4;
+
+  //所属分类
+  int32 classifyId = 5;
+
+  //音频长度
+  string audioDuration = 6;
+
+  //封面信息
+  PictureInfo audioPicture = 7;
+
+  //bgm列表
+  repeated AudioInfo audioInfoList = 8;
+
+  //本地地址
+  string localPath=9;
+
+  //音频作者
+  string author=10;
+}
+message ArticleInfo{
+  //豆友说ID
+  int64 articleId = 1;
+  //
+  int64 userId = 2;
+  //
+  int64 spaceId = 3;
+  //文章标题
+  string articleTitle = 4;
+  //文章内容
+  string articleContent = 5;
+  //文章视频ID
+  int64 videoId = 6;
+  //添加时间
+  int64 addTime = 7;
+  //文章分数
+  int32 score = 8;
+  //状态0不可用 1可用
+  int32 status = 9;
+  //管理员ID
+  int32 adminId = 10;
+  //管理员名称
+  string adminName = 11;
+  //管理员操作时间
+  int64 adminTime = 12;
+  //文章列表
+  repeated ArticleInfo articleInfoList=13;
+  //赞数
+  int64 praise = 14;
+  //评论数
+  int64 comment = 15;
+  //收藏数
+  int64 collection = 16;
+  //图片
+  PictureInfo pictureInfo = 17;
+  //用户信息
+  UserInfo userInfo = 18;
+  //是否被赞
+  bool isPraise = 19;
+  //是否被收藏
+  bool isCollection = 20;
+  //可购产品列表
+  ProductInfo productInfo = 21;
+  //店铺信息
+  SpaceInfo spaceInfo = 22;
+  VideoInfo videoInfo =23 ;
+  //文章类型 0普通豆友说 1视频豆友说
+  int32	ArticleType = 24;
+}
+message AudioClassify {
+
+  //主键
+  int32 classifyId = 1;
+
+  //省ID
+  string classifyName = 2;
+
+  //图标ID
+  int64 classifyIcon = 3;
+
+  //状态
+  int32 classifyStatus = 4;
+
+  //对应路径
+  string classifyPath = 5;
+
+  //用户头像信息
+  PictureInfo classifyImage = 6;
+
+  //地址列表
+  repeated AudioClassify audioClassifyList = 7;
+}
+message ImageRequest {
+  Image image = 1;
+  BaseRequest baseRequest = 2;
+}
+message BaseRequest{
+  //用户标识
+  string token=1;
+  //加密串
+  string p=2;//加密P
+  //签名
+  string sign=3;
+  //map参数
+  map<string, string> SpareParameter= 4;
+}
+message LiveAudiences {
+  int64 eventId = 1;
+  int64 spaceId = 2;
+  int64 userId = 3;
+  string userName = 4;
+  int32 status = 5;
+  int64 enterTime = 6;
+  int64 liveId = 7;
+  int64 quitTime = 8;
+  repeated LiveAudiences liveAudiencesList = 9;
+}
+message LiveInfo {
+  int64 liveId = 1;
+  int64 cameraId = 2;
+  string liveTitle = 3;
+  string liveAddress = 4;
+  int64 spaceId = 5;
+  int32 liveType = 6;
+  int64 userId = 7;
+  int64 startTime = 8;
+  int64 stopTime = 9;
+  int32 liveStatus = 10;
+  int32 watchNumber = 11;
+  int32 livePrivate = 12;
+  int64 picId = 13;
+  int32 liveScore = 14;
+  string tagName = 15;
+  PictureInfo liveCover = 16;
+  string rtmpPlayUrl = 17;
+  string hlsPlayUrl = 18;
+  UserInfo userInfo = 19;
+  repeated LiveInfo liveInfoList = 20;
+  int32 videoWidth = 21;
+  int32 videoHeight = 22;
+  int32 xCenter = 23;
+  int32 yCenter = 24;
+  int32 radius = 25;
+  string spaceNum = 26;
+  string userName = 27;
+  string spaceNmae = 28;
+  string cameraName = 29;
+  //vr店铺地址
+  string vrUrl=30;
+  //直播密码
+  string livePassword=31;
+}
+message VRTopicSpaceReply{
+  //VR列表
+  VRTopicSpace vrTopicSpace=1;
+
+  //分页信息
+  PageInfo page=2;
+}
+message VRTopic{
+  //
+  int32  topicId = 1;
+
+  //名称
+  string topicName = 2;
+
+  //标题
+  string topicDesc = 3;
+
+  //专题地址
+  string topicUrl = 4;
+
+  //最后编辑时间
+  int64 editTime = 5;
+
+  //最后编辑人
+  int32 editAdminId = 6;
+
+  //最后编辑人
+  string editAdminName = 7;
+
+  //图片
+  int64 picId = 8;
+
+  //排序
+  int32 sortNum = 9;
+
+  //0不可用  1可用
+  int32 status = 10;
+
+  //图标图片ID
+  int64 iconPicId = 11;
+
+  //主题颜色
+  string themeColor = 12;
+
+  //0 不顶置 1 顶置
+  int32 top = 13;
+
+  //列表
+  repeated VRTopic vrTopicList = 14;
+
+  //VR专题店铺
+  VRTopicSpace vrTopicSpace=15;
+
+  //图片信息
+  PictureInfo pictureInfo=16;
+
+  //图标图片信息
+  PictureInfo iconPictureInfo=17;
+  //在线数
+  int64 onLineCount = 18;
+}
+message LiveReply {
+  LiveInfo liveInfo = 1;
+  PageInfo page = 2;
+}
+message LiveVideo {
+  int64 videoId = 1;
+  int32 videoSize = 2;
+  double videoTime = 3;
+  int32 liveType = 4;
+  int64 liveId = 5;
+  string liveTitle = 6;
+  int64 liveTime = 7;
+  int64 cameraId = 8;
+  int64 userId = 9;
+  string playUrl = 10;
+  int32 playTotal = 11;
+  int64 picid = 12;
+  string bitRate = 13;
+  string resolution = 14;
+  repeated LiveVideo liveVideoList = 15;
+  PictureInfo pictureInfo = 16;
+  UserInfo userInfo = 17;
+  string spaceNumber = 18;
+  sint64 soldNum = 19;
+  double receiveRedBean = 20;
+  //vr店铺地址
+  string vrUrl=21;
+}
+message VRTopicSpace{
+  //
+  int32  tsId = 1;
+  //所属专题
+  int32 topicId = 2;
+  //关联店铺
+  int64 spaceId = 3;
+  //VR地址
+  int32 vrUrl = 4;
+  //标题
+  string vrTitle = 5;
+  //描述
+  string vrDesc = 6;
+  //图片ID
+  int64 vrPicId = 7;
+  //地址
+  string spaceAddress = 8;
+  //排序
+  int32 sortNum = 9;
+  //添加时间
+  int64 editTime = 10;
+  //添加人
+  int32 editAdminId = 11;
+  //添加人
+  string editAdminName = 12;
+  //店铺分类ID
+  int32 classifyId = 13;
+  //列表
+  repeated VRTopicSpace vrTopicSpaceList = 14;
+  //图片信息
+  PictureInfo vrPictureInfo=16;
+}
+message LiveVideoReply {
+  LiveVideo liveVideo = 1;
+  PageInfo page = 2;
+}
+message MoneyInfo {
+  int64 userId = 1;
+  string moneyBalance = 2;
+  string redbeanBalance = 3;
+  string redbeanCoinBalance = 4;
+  string lockedMoneyBalance = 5;
+  string sincerityMoneyBalance = 6;
+  repeated MoneyInfo moneyInfoList = 7;
+}
+message NoticeInfo {
+  int64 noticeId = 1;
+  int64 userId = 2;
+  string userName = 3;
+  int64 spaceId = 4;
+  string spaceName = 5;
+  string liveTitle = 6;
+  int64 liveTime = 7;
+  int64 createTime = 8;
+  int32 state = 9;
+  int64 picId = 10;
+  int32 spaceTag = 11;
+  int32 spaceLevel = 12;
+  bool noticeAlert = 13;
+  PictureInfo userHead = 14;
+  repeated NoticeInfo noticeInfoList = 15;
+  SpaceVerify spaceVerify = 16;
+  //直播预告详情
+  string liveDesc=17;
+}
+message SMNoticeInfo {
+  int32 newsId = 1;
+  //新闻标题
+  string newsTitle = 2;
+  //新闻内容
+  string newsContext = 3;
+  //关键字,一般以  ','   隔开
+  string newsKeys = 4;
+  //描述
+  string description = 5;
+  //新闻来源
+  string source = 6;
+  //图片ID
+  int64 picId = 7;
+  //发行人ID
+  int32 issuerId = 8;
+  //修改人ID
+  int32 modifierId = 9;
+  //修改时间
+  int64 modifyTime = 10;
+  //发行时间
+  int64 issueTime = 11;
+  //0  不可用  1可用
+  int32 status = 12;
+  //1.升级动态 2.直播资讯 3主播内参
+  int32 newsType = 13;
+  //跳转地址
+  string newsUrl = 14;
+  //新闻列表
+  repeated SMNoticeInfo smnoticeInfoList = 15;
+  //新闻图片
+  PictureInfo pictureInfo=16;
+}
+message NoticeInfoReply {
+  SMNoticeInfo smnoticeInfo = 1;
+  PageInfo page = 2;
+}
+message NoticeReply {
+  NoticeInfo noticeInfo = 1;
+  PageInfo page = 2;
+}
+message OrderInfo {
+  int64 orderId = 1;
+  string orderNumber = 2;
+  int64 orderTime = 3;
+  double orderAmount = 4;
+  int32 orderStatus = 5;
+  double orderPostage = 6;
+  int64 spaceId = 7;
+  string spaceName = 8;
+  int64 userId = 9;
+  string userName = 10;
+  string userPhone = 11;
+  int64 payTime = 12;
+  int64 finnshedTime = 13;
+  double productsAmount = 14;
+  int32 evaluationState = 15;
+  string searchKey = 16;
+  int32 deleteStatus = 17;
+  string receiveName = 18;
+  string receiveAddress = 19;
+  string receivePhone = 20;
+  string orderNote = 21;
+  string transportNumber = 22;
+  string transportCompany = 23;
+  string payDesc = 24;
+  int32 isRefund = 25;
+  int64 parentId = 26;
+  OrderProduct orderProduct = 27;
+  string sendName = 28;
+  string sendPhone = 29;
+  string sendAddress = 30;
+  repeated OrderInfo orderList = 31;
+  SpaceInfo spaceInfo = 32;
+  UserInfo userInfo = 33;
+  double supplierOrderAmount = 34;
+  OrderRefund orderRefund = 35;
+  SpaceInfo supplierSpaceInfo = 36;
+  //支付id
+  string payId = 37;
+  //1 快递 2 自提 3 送货上门
+  int32 transportType = 38;
+  //百分比价格（非VIP时代售产品生成的订单才有
+  double orderPercentPrice = 39;
+  //订单来源  0 原先的 1 IOS 2安卓 4 微信
+  int32 orderSource =40;
+  //是否改价 1 改价 0 未改价
+  int32 changePrice = 41;
+  //卖家备注
+  string sellerMark = 42;
+  //发货单打印次数
+  int32 printInvoice = 43;
+  //快递单打印次数
+  int32 printExpress = 44;
+  //订单关闭原因
+  string closeReason = 45;
+  //省
+  string addressProvincesInfo=46;
+  //城市
+  string addressCityInfo=47;
+  //区
+  string addressDistrictInfo=48;
+  //街道
+  string addressStreet=49;
+  int64 grActivityId=50;
+  //团ID
+  int64 groupCollageId=51;
+  //拼团信息
+  GRActivityPublish grActivityPublish=52;
+  //优惠券ID
+  int64 couponId=53;
+
+  //优惠金额
+  double couponDiscountAmount=54;
+}
+message OrderProduct {
+  int64 orderId = 1;
+  int64 productId = 2;
+  string productName = 3;
+  double productPrice = 4;
+  int32 productNum = 5;
+  string productImage = 6;
+  double productPayPrice = 7;
+  int64 spaceId = 8;
+  int64 userId = 9;
+  string productType = 10;
+  int32 productCategoryCode = 11;
+  string productCategoryDesc = 12;
+  int64 inventoryId = 13;
+  string productOptionDesc = 14;
+  PictureInfo productPicture = 15;
+  repeated OrderProduct orderProductList = 16;
+  //退款ID
+  int64 refundId = 17;
+  //退款状态 申请状态:1为处理中,2卖家同意 3, 卖家拒绝 4 卖家同意退货 ,5为已完成 6,平台处理中,0 取消
+  int32 refundStatus = 18;
+}
+message OrderRefund {
+  int64 refundId = 1;
+  int64 orderId = 2;
+  string orderNum = 3;
+  string refundNum = 4;
+  int64 spaceId = 5;
+  string spaceName = 6;
+  int64 userId = 7;
+  string userName = 8;
+  double refundAmount = 9;
+  int32 orderGoodsType = 10;
+  int32 refundType = 11;
+  int32 sellerStatus = 12;
+  //申请状态: 1 为处理中,2卖家同意退款 3, 卖家拒绝 4 卖家同意退货 ,5 买家已发货 6,平台处理中,0 取消
+  int32 refundStatus = 13;
+  int32 returnType = 14;
+  int32 orderLock = 15;
+  int32 orderStatus = 16;
+  int64 addTime = 17;
+  int64 sellerTime = 18;
+  int64 appealTime = 19;
+  int64 adminTime = 20;
+  string reasonInfo = 21;
+  string buyerMessage = 22;
+  string sellerMessage = 23;
+  string adminMessage = 24;
+  string expressName = 25;
+  string invoiceNo = 26;
+  int64 shipTime = 27;
+  int64 receiveTime = 28;
+  string receiveMessage = 29;
+  //退款图片信息
+  PictureInfo pictureInfo = 30;
+  //退款产品ID
+  int64 productId = 31;
+  //退款产品信息
+  ProductInfo productInfo = 32;
+  //退款列表
+  repeated OrderRefund orderRefund = 33;
+  //退款父Id
+  int64 parentId = 34;
+  // 退款状态 1 已退款 2 未退款
+  int32 refundCash = 35;
+  //退款时间
+  int64 refundCashTime = 36;
+  //退款时间
+  string refundAddress = 37;
+  //店铺头像
+  PictureInfo spaceHead = 38;
+  //用户头像
+  PictureInfo userHead = 39;
+  //买家处理时间
+  int64 buyerTime = 40;
+  //退款信息
+  string refundMessage = 41;
+  //退款原因
+  string refundCause =42;
+  //收货标记 0 未收到 1收到
+  string receiveFlag = 43;
+  int64 inventoryId = 44;
+}
+message  OrderRefundReply{
+  //退款列表
+  OrderRefund orderRefund=1;
+  //分页信息
+  PageInfo page=2;
+}
+message OrderReply {
+  OrderInfo orderInfo = 1;
+  PageInfo page = 2;
+}
+message ProductCategory {
+  //产品类型ID
+  int64 productCategoryCode = 1;
+  //产品类型名称
+  string productCategoryName = 2;
+  //类型父ID
+  int64 parentCode = 3;
+  //状态
+  int32 status = 4;
+  //产品类型验证列表
+  repeated ProductCategory productCategoryList = 5;
+  //图片ID
+  int64 picId=6;
+  //图片信息
+  PictureInfo pictureInfo=7;
+  //深度
+  int32 deep =8;
+  //分类的百分比
+  double categoryPercent=9;
+}
+message ProductComment {
+  int64 commentId = 1;
+  int64 productId = 2;
+  int64 commentTime = 3;
+  int32 commentScore = 4;
+  int64 uesrId = 5;
+  int32 status = 6;
+  string commentDesc = 7;
+  repeated ProductComment productCommentList = 8;
+  UserInfo userInfo = 9;
+  double commentScoreAVG = 10;
+  //评论图片列表
+  PictureInfo commentPicture=11;
+
+  //是否匿名 1不匿名 0匿名
+  int32 showName=12;
+  //购买的产品规格信息，可能为空
+  string productOptionDesc=13;
+}
+message ProductInfo {
+  int64 productId = 1;
+  string productName = 2;
+  string productNamePhonetic = 3;
+  string productNamePhonetichead = 4;
+  double productPrice = 5;
+  int32 productCategoryCode = 6;
+  string productCategoryDesc = 7;
+  int32 productStatue = 8;
+  int32 productVerify = 9;
+  double productFreight = 10;
+  string productKeys = 11;
+  string productStorageAlarm = 12;
+  string productImage = 13;
+  int64 productAddtime = 14;
+  int64 productEdittime = 15;
+  string productDesc = 16;
+  int64 spaceId = 17;
+  string spaceName = 18;
+  int64 picId = 19;
+  int64 videoId = 20;
+  int32 transportId = 21;
+  int64 columnId = 22;
+  double productSalePrice = 23;
+  double productPurchasePrice = 24;
+  int32 resaleTag = 25;
+  double resaleCommission = 26;
+  string productNumber = 27;
+  double productWeight = 28;
+  int64 parentId = 29;
+  int32 collection = 30;
+  int32 review = 31;
+  int32 sales = 32;
+  string spaceTag = 33;
+  PictureInfo productPicture = 34;
+  ProductInventory productInventory = 35;
+  ProductSku productSku = 36;
+  ProductSkuOption productSkuOption = 37;
+  repeated PictureInfo productImageList = 38;
+  repeated ProductInfo productInfoList = 39;
+  bool isCollection = 40;
+  SpaceInfo spaceInfo = 41;
+  SpaceProductRecom spaceProductRecom = 42;
+  VideoInfo videoInfo = 43;
+  int64 totalInventory = 44;
+  int32 parentStatus = 45;
+  int32 priceTag = 48;
+  int64 qrcodeId = 49;
+  PictureInfo qrcodePicture = 50;
+  ProductFreight freight = 51;
+  int64 templateId = 52;
+  double productVolume = 53;
+  double productPercentPrice = 54;
+  //缓存分数
+  int32 productCacheScore=55;
+  //分数
+  int32 productScore=56;
+  //判断产品是否在直播中
+  bool isLive=57;
+  // 是否被选中
+  bool isChecked = 58;
+  //产品排序
+  int32 sortNum=59;
+  //尺寸
+  string productSize=60;
+  //材质
+  string productMaterial=61;
+  //长图ID
+  int64 bannePicId=62;
+  //长图地址
+  string bannerPicUrl=63;
+  //栏目名称
+  string columnName=64;
+  //拼团信息
+  GRActivityPublish grActivityPublish=65;
+}
+message GRActivityPublish{
+  //商品ID
+  int64 productId = 1;
+
+  //用户ID
+  int64 userId = 2;
+
+  //店铺ID
+  int64 spaceId = 3;
+
+  //
+  double productGroupLowPrice = 4;
+
+  //组团人数
+  int32 groupNumber = 5;
+
+  //团购生效时长（小时）
+  int32 groupAvailabletime = 6;
+
+  //是否限购（1限购,0非限购）
+  int32 islimited = 7;
+
+  //限购数量
+  int32 limitedNumber = 8;
+
+  //是否能使用优惠券（1可以,0不可以）
+  int32 iscouponed = 9;
+
+  //活动开始时间
+  int64 activityStarttime = 10;
+
+  //活动结束时间
+  int64 activityEndtime = 11;
+
+  //拼团活动是否启用(1启用，0未启用)
+  int32 activityStatus = 12;
+
+  //活动创建时间
+  int64 activityCreatetime = 13;
+
+  //活动编辑时间
+  int64 activityUpdatetime = 14;
+
+  //是否删除(1删除，0未删除)
+  int32 deleted = 15;
+  //列表
+  repeated GRActivityPublish grActivityPublishs = 16;
+
+  //是否有效期内 1有效期外 2有效期内 -1未开始
+  int32 isgroupAvailabletime=17;
+
+  //正在拼团人数
+  int32 groupCount = 18;
+
+  //组团信息
+  GRActivityGroup grActivityGroup=19;
+  //主键
+  int64 grActivityId=20;
+  //其他组团信息
+  GRActivityGroup otherActivityGroup=21;
+}
+message GRActivityUsers{
+  //商品ID
+  int64 productId = 1;
+
+  //组团ID
+  int64 groupId = 2;
+
+  //用户id
+  int64 offeredUserId = 3;
+
+  //加入团时间
+  int64 offeredCreatetime = 4;
+
+  //是否是团长 (1团长，0非团长)
+  int32 isgroupuser = 5;
+
+  //参团是否成功(1成功，0不成功)
+  int32 issuccessed = 6;
+  //列表
+  repeated GRActivityUsers grActivityUserlist = 7;
+
+  //参团用户信息
+  UserInfo userInfo=8;
+
+  //活动ID
+  int64 grActivityId=9;
+}
+message GRActivityGroup{
+  //拼团活动发布编号
+  int64 groupId = 1;
+
+  //商品ID
+  int64 productId = 2;
+
+  //拼团总人数
+  int32 groupUsercount = 3;
+
+  //成功总人数
+  int32 successUsercount = 4;
+
+  //拼团状态（1-发起拼团 2-正在拼团 3-拼团成功4,--解散完成、拼团失败）
+  int32 groupStatus = 5;
+
+  //团长用户id
+  int64 groupUserId = 6;
+
+  //团创建时间
+  int64 groupCreatetime = 7;
+  //列表
+  repeated GRActivityGroup grActivityGroups = 8;
+
+  //团购有效时长（小时）
+  int32 groupAvailabletime = 9;
+  //剩余人数
+  int32 disanceCount = 10;
+  //剩余时间
+  int64  endSecond=11;
+  //用户信息
+  UserInfo userInfo=12;
+  //参团人员
+  GRActivityUsers grActivityUsers=13;
+  //活动ID
+  int64 grActivityId=14;
+  //活动结束时间
+  int64 activityEndtime=15;
+}
+message GRSKUInventory{
+  //库存ID
+  int64 inventoryId = 1;
+
+  //商品ID
+  int64 productId = 2;
+
+  //拼团价格
+  double productPrice = 3;
+
+  //拼团库存
+  int32 groupInventory = 4;
+  //库存列表
+  repeated GRSKUInventory grSKUInventorys = 5;
+
+  //活动ID
+  int64 grActivityId=6;
+}
+message ProductInventory {
+  int64 inventoryId = 1;
+  int64 productId = 2;
+  string productSkuOption = 3;
+  double productPrice = 4;
+  double resalePrice = 5;
+  int32 productInventory = 6;
+  int32 status = 7;
+  int64 picId = 8;
+  PictureInfo inventoryImage = 9;
+  repeated ProductInventory inventoryList = 10;
+  repeated ProductSkuOption productSkuOptionList = 11;
+  int64 fatherId = 12;
+  int32 buyNum = 13;
+  GRSKUInventory grSKUInventory=14;
+}
+message ProductReply {
+  ProductInfo productInfo = 1;
+  PageInfo page = 2;
+}
+message ProductSku {
+  int64 psId = 1;
+  int64 skuId = 2;
+  int64 productId = 3;
+  SkuInfo skuInfo = 4;
+  repeated ProductSku productSkuList = 5;
+  ProductSkuOption productSkuOption = 6;
+}
+message RedBeanModel {
+  int32 modelId = 1;
+  string modelName = 2;
+  double modelValue = 3;
+  double modelRmb = 4;
+  string modelType = 5;
+  string modelIco = 6;
+  string appleId = 7;
+  repeated RedBeanModel modelList = 8;
+}
+message RoomBlack {
+  int64 blackId = 1;
+  int64 spaceId = 2;
+  int64 userId = 3;
+  int64 addTime = 4;
+  int64 fromUserId = 5;
+  UserInfo userInfo = 6;
+  repeated RoomBlack roomBlackList = 7;
+}
+message RoomBlackReply {
+  RoomBlack roomBlack = 1;
+  PageInfo page = 2;
+}
+message RoomManager {
+  int64 managerId = 1;
+  int64 userId = 2;
+  int64 spaceId = 3;
+  int64 addTime = 4;
+  repeated RoomManager roomManager = 5;
+  SpaceInfo spaceInfo = 6;
+  UserInfo userInfo = 7;
+}
+message ShareInfo {
+  int32 paramId = 1;
+  string paramName = 2;
+  string paramTitle = 3;
+  string paramDesc = 4;
+  int32 paramType = 5;
+  string paramUrl = 6;
+  int32 paramStatus = 7;
+  int32 shareApp = 8;
+  repeated ShareInfo shareInfoList = 15;
+}
+message SkuInfo {
+  int64 skuId = 1;
+  int32 productCategoryCode = 2;
+  string skuName = 3;
+  string skuDesc = 4;
+  repeated SkuInfo skuInfoList=5;
+  SkuOptionInfo skuOptionInfo=6;
+}
+message SpaceBanner {
+  int64 spaceId = 1;
+  int64 picId = 2;
+  int32 status = 3;
+  int64 addTime = 4;
+  repeated SpaceBanner spaceBanner = 5;
+  PictureInfo pictureInfo = 6;
+}
+message SpaceClassify {
+  int32 classifyId = 1;
+  string classifyName = 2;
+  int32 parentId = 3;
+  int32 status = 4;
+  int32 areaId = 5;
+  int32 orderNum = 6;
+  repeated SpaceClassify classifyList = 7;
+  PictureInfo pictureInfo = 8;
+}
+message SpaceColumn {
+  int32 columnId = 1;
+  string columnName = 2;
+  int64 spaceId = 3;
+  int32 columnOrder = 4;
+  int32 columnStatus = 5;
+  repeated SpaceColumn spaceColumns = 6;
+}
+message SpaceInfo {
+  int64 spaceId = 1;
+  string spaceNum = 2;
+  string spaceName = 3;
+  string spaceNamePhonetic = 4;
+  string spaceNamePhoneticHead = 5;
+  string spaceAddress = 6;
+  string spaceType = 7;
+  string spaceNotice = 8;
+  string spaceContact = 9;
+  string spacePhone = 10;
+  int32 spaceLevel = 11;
+  int64 createTime = 12;
+  int64 userId = 13;
+  int32 status = 14;
+  int32 classifyId = 15;
+  string classifyName = 16;
+  string spaceInfo = 17;
+  int32 spaceScore = 18;
+  int32 verifyStatus = 19;
+  string spaceMain = 20;
+  int32 spaceArea = 21;
+  UserInfo userInfo = 22;
+  SpaceVideo spaceVideo = 23;
+  SpaceColumn spaceColumn = 24;
+  repeated SpaceInfo spaceInfoList = 25;
+  SpaceBanner spaceBanner = 26;
+  int32 productCount = 27;
+  int32 sales = 28;
+  int32 collection = 29;
+  bool isCollection = 30;
+  int32 orderUnpay = 31;
+  int32 orderUnShip = 32;
+  int32 orderUnReceive = 33;
+  int32 orderUnComment = 34;
+  int32 orderRefunds = 35;
+  int32 messageCount = 36;
+  LiveInfo liveInfo = 37;
+  LiveVideo liveVideo = 38;
+  int64 liveAudiences = 39;
+  SpaceVerify spaceVerify = 40;
+  WapVerify wapVerify = 41;
+  string longitude = 42;
+  string latitude = 43;
+  bool isVip = 44;
+  bool isDeposit = 45;
+  //当天的成交额
+  string todayTransactionAmount=46;
+  //当天的订单数
+  int32 todayOrderCount=47;
+  //当天的访客数
+  int32 todayVisitorCount=48;
+  //是否拥有营业执照
+  bool haveLicensePhotos=49;
+  //是否开通vr店铺  1开通 0未开通
+  int32 isVr=50;
+  //vr店铺地址
+  string vrUrl=60;
+  //vip类型：1.SVIP 2.VRVIP 3.普通VIP
+  int32 vipType=61;
+  int32 groupId=62;
+  //距离当前用户的距离
+  double distance=63;
+}
+message SpaceProductRecom {
+  int64 productId = 1;
+  int64 spaceId = 2;
+  int32 orderNumber = 3;
+  int32 recomType = 4;
+  repeated SpaceProductRecom spaceProductRecomList = 5;
+}
+message SpaceReply {
+  SpaceInfo spaceInfo = 1;
+  PageInfo page = 2;
+  SpaceWithProduct spaceWithProduct = 3;
+}
+message SpaceVerify {
+  int64 verifyId = 1;
+  string verifyName = 2;
+  string verifyPhone = 3;
+  string verifyNo = 4;
+  int32 verifyType = 5;
+  int64 submitTime = 6;
+  int64 spaceId = 7;
+  string spaceName = 8;
+  int64 userId = 9;
+  string userName = 10;
+  string cameraNo = 11;
+  int32 verifyStatus = 12;
+  string verifySpaceName = 13;
+  string activePlatform = 14;
+  int32 fanNum = 15;
+  string wechatNumber = 16;
+  string licenseNumber = 17;
+  string sourceAddress = 18;
+  string soruceProduct = 19;
+  int32 verifyAdminId = 20;
+  string verifyAdminName = 21;
+  string verifyDetails = 22;
+  repeated SpaceVerify spaceVerifys = 23;
+  SpaceVerifyPicture spaceVerifyPicture = 24;
+  string passportNo = 25;
+  //店铺地址Id
+  int32 addressId=26;
+  //店铺地址信息
+  AddressInfo addressInfo=27;
+  //店铺分类ID
+  int32 classifyId = 28;
+  //分类名
+  string classifyName = 29;
+  //快递公司名称
+  string expressCompany=30;
+  //快递公司编码
+  string expressCompanyCode=31;
+  //物流单号
+  string trackingNumber=32;
+}
+message SpaceVerifyPicture {
+  int64 verifyId = 1;
+  int64 picId = 2;
+  int32 picType = 3;
+  repeated SpaceVerifyPicture spaceVerifyPictures = 4;
+  PictureInfo pictureInfo = 5;
+}
+message SpaceVideo {
+  int32 spaceId = 1;
+  int32 videoId = 2;
+  int32 status = 3;
+  int64 addTime = 4;
+  repeated SpaceVideo spaceVideos = 5;
+  VideoInfo videoInfo = 6;
+}
+message SpaceWithProduct {
+  SpaceInfo spaceInfo = 1;
+  ProductInfo productInfo = 2;
+  repeated SpaceWithProduct spaceWithProductList = 3;
+}
+message SUHomeSelection {
+  int32  selectionId = 1;
+  //名称
+  string selectionName = 2;
+  //标题
+  string selectionTitle = 3;
+  //最后编辑时间
+  int64 editTime = 4;
+  //图片
+  int64 picId = 5;
+  //排序
+  int32 sortNum = 6;
+  //0不可用  1可用
+  int32 status = 7;
+  //红豆严选表
+  repeated SUHomeSelection suHomeSelectionList = 8;
+  //图片
+  PictureInfo pictureInfo=9;
+  //图标ID
+  int64 iconPicId=10;
+  //二级Banner图片ID
+  int64 bannerPicId=11;
+  //图标图片
+  PictureInfo iconPictureInfo=12;
+  //二级Banner图片
+  PictureInfo bannerPictureInfo=13;
+}
+message SUHomeSelectionSpace {
+  //店铺ID，唯一
+  int64 spaceId = 1;
+  //严选ID
+  int32 selectionId = 2;
+  //排序字段
+  int32 sortNum = 3;
+  //图片ID
+  int64 picId = 4;
+  //标题
+  string title = 5;
+  //优惠
+  string discount = 6;
+  //列表
+  repeated SUHomeSelectionSpace suHomeSelectionSpaceList = 7;
+  //图片
+  PictureInfo pictureInfo=8;
+}
+message SUHomeSelectionSpaceReply {
+  SUHomeSelectionSpace suHomeSelectionSpace=1;
+  //分页信息
+  PageInfo page=2;
+}
+message TradeInfo {
+  string payId = 1;
+  double payMoney = 2;
+  int64 payTime = 3;
+  int32 payType = 4;
+  string payDesc = 5;
+  string payAccount = 6;
+  string realName = 7;
+  int32 status = 8;
+  int64 orderId = 9;
+  int64 orderType = 10;
+  int64 userId = 11;
+  OrderInfo orderInfo = 12;
+  repeated TradeInfo tradeInfoList = 13;
+}
+message TradeReply {
+  TradeInfo tradeInfo = 1;
+  PageInfo page = 2;
+}
+message UserBalanceLog {
+  int64 logId = 1;
+  //改变后可提现金额
+  string moneyBalance = 2;
+  //改变后锁定佣金
+  string lockedMoneyBalance = 3;
+  //改变后保证金
+  string aMDepositBalance = 4;
+  //改变前可提现金额
+  string moneyBalanceOrigin = 5;
+  //改变前锁定佣金
+  string lockedMoneyBalanceOrigin = 6;
+  //改变前保证金
+  string aMDepositBalanceOrigin = 7;
+  //1.保证金相关 2.订单金额相关
+  int32 logType = 8;
+  //改变金额的用户ID
+  int64 userId = 9;
+  //金额转入的用户ID
+  int64 toUserId = 10;
+  //日志详情
+  string logDetail = 11;
+  // 0转换  1增加 2减少
+  int32 status = 12;
+  // 时间
+  int64 logTime=13;
+  //用户金额日志表
+  repeated UserBalanceLog userBalanceLog= 14;
+}
+message UserBalanceLogReply {
+  UserBalanceLog userBalanceLog = 1;
+  PageInfo page = 2;
+}
+message UserReply {
+  UserInfo userInfo = 1;
+  PageInfo page = 2;
+}
+message VideoUpload {
+  bytes videoBytes = 1;
+  string videoName = 2;
+  string suffix = 3;
+  map<string, string> SpareParameter = 4;
+  repeated VideoUpload video = 5;
+}
+message VideoInfo {
+  int64 videoId = 1;
+  string fileTitle = 2;
+  string fileName = 3;
+  int32 serverId = 4;
+  int64 uploadTime = 5;
+  int32 videoType = 6;
+  int32 userId = 7;
+  int64 picId = 8;
+  int32 watchNumber = 9;
+  string videoPath = 10;
+  map<string, string> SpareParameter = 11;
+  repeated VideoInfo videoInfoList = 12;
+}
+message VideoRequest {
+  VideoUpload video = 1;
+  BaseRequest baseRequest = 2;
+}
+message WapVerify {
+  int64 wapId = 1;
+  string wapName = 2;
+  string wapClassify = 3;
+  int32 wapFans = 4;
+  string wapDesc = 5;
+  string contactName = 6;
+  string contactPhone = 7;
+  int32 wapStatus = 8;
+  int64 verifyId = 9;
+  string verifyName = 10;
+  string verifyDesc = 11;
+  int64 spaceId = 12;
+  int64 picId = 13;
+  string spaceNum = 14;
+  int64 commitTime = 15;
+  int64 verifyTime = 16;
+  repeated WapVerify wapVerifys = 17;
+  string wapUrl = 18;
+}
+message WeiXinUserInfo {
+  int64 userId = 1;
+  string token = 2;
+  string liveList = 3;
+  UserInfo userInfo = 4;
+}
+message BankCard{
+  int32 bankCardId = 1;
+  //银行名
+  string bankName = 2;
+  //1.使用  0不使用
+  string status = 3;
+  //升序排序
+  int32 sortNum = 4;
+  //图标
+  int64 bankIcon = 5;
+  //封面图
+  int64 bankPic = 6;
+  //银行列表
+  repeated BankCard bankCardList = 7;
+  //图标图片信息
+  PictureInfo iconPicture=8;
+  //封面图图片信息
+  PictureInfo picture=9;
+}
+message UserBankCard{
+  //ID
+  int64 cardId = 1;
+  //持卡人姓名
+  string bankCardName = 2;
+  //卡号
+  string bankCardNo = 3;
+  //银行名字
+  string bankName = 4;
+  //用户ID
+  int64 userId = 5;
+  //所属支行
+  string bankCardBranch = 6;
+  //银行预留电话
+  string phoneNo = 7;
+  //银行卡ID
+  int32 bankCardId = 8;
+  //0不使用  1使用
+  int32 status = 9;
+  //用户银行列表
+  repeated UserBankCard userBankCardList  = 10;
+  //银行信息
+  BankCard bankCard=11;
+}
+message BaseReply {
+  int32 Code = 1;
+  string Message = 2;
+  map<string, string> spareParameter = 3;
+  UserInfo userInfo = 4;
+  BannerInfo bannerInfo = 5;
+  PictureInfo pictureInfo = 6;
+  VideoInfo videoInfo = 7;
+  AreaInfo areaInfo = 8;
+  SpaceInfo spaceInfo = 9;
+  AddressInfo addressInfo = 10;
+  SpaceColumn spaceColumn = 11;
+  NoticeReply noticeReply = 12;
+  SpaceVerify spaceVerify = 13;
+  CameraReply cameraReply = 14;
+  MoneyInfo moneyInfo = 15;
+  WapVerify wapVerify = 16;
+  SpaceBanner spaceBanner = 17;
+  OrderInfo orderInfo = 18;
+  OrderReply orderReply = 19;
+  ProductInfo productInfo = 20;
+  ProductReply productReply = 21;
+  TradeInfo tradeInfo = 22;
+  TradeReply tradeReply = 23;
+  UserReply userReply = 24;
+  ProductCategory productCategory = 25;
+  SpaceReply spaceReply = 26;
+  CartReply cartReply = 27;
+  SpaceClassify spaceClassify = 28;
+  SpaceProductRecom spaceProductRecom = 29;
+  LiveVideoReply liveVideoReply = 30;
+  LiveVideo liveVideo = 31;
+  LiveInfo liveInfo = 32;
+  CommentReply commentReply = 33;
+  RedBeanModel redBeanModel = 34;
+  AppVersion appVersion = 35;
+  ActiviteInfo activiteInfo = 36;
+  OrderRefund protocOrderRefund = 37;
+  CashReply cashReply = 38;
+  CashInfo cashInfo = 39;
+  ExpressCompany expressCompany = 40;
+  NoticeInfoReply noticeInfoReply = 41;
+  HMDayClassify hmdayClassify = 42;
+  HelpQuestions helpQuestion = 43;
+  Agent agent = 44;
+  UserBalanceLog UserBalanceLog = 45;
+  UserBalanceLogReply UserBalanceLogReply = 46;
+  SUHomeSelectionSpaceReply suHomeSelectionSpaceReply = 47;
+  SUHomeSelectionSpace suHomeSelectionSpace = 48;
+  SUHomeSelection suHomeSelection = 49;
+  //用户银行卡信息
+  UserBankCard userBankCard=50;
+  //银行卡信息
+  BankCard bankCard=51;
+  //银行卡信息
+  OrderRefundReply orderRefundReply=52;
+  //备用参数，传输字符串列表
+  repeated string strList=53;
+  //退款信息
+  DepositRefund depositRefund=54;
+  DraftUser draftUser=56;
+  //活动用户列表
+  DraftUserReply draftUserReply=57;
+  //活动信息
+  EventInfo eventInfo=58;
+  //文章
+  ArticleInfo articleInfo = 59;
+  //文章列表
+  ArticleInfoReply articleInfoReply = 60;
+  //评论列表
+  ArticleCommentReply articleCommentReply = 61;
+  //屏蔽关键字
+  KeywordsShielding keywordsShielding=62;
+  //客服信息
+  CustomerService customerService=63;
+  //vip模版信息
+  VipModel vipModel=64;
+  //流量订单信息
+  FlowOrder flowOrder=65;
+  //流量订单模版信息
+  FlowModel flowModel=66;
+  //流量订单分页
+  FlowOrderReply flowOrderReply=67;
+  //DSP流量订单
+  DSPOrderInfo DSPOrderInfo=68;
+  //DSP流量订单分页
+  DSPOrderReply DSPOrderReply=69;
+  //产品运费模版分页
+  ProductFreightReply productFreightReply=70;
+
+  //规格
+  SkuInfo skuInfo=71;
+
+  //爆品推荐
+  HMRecomProductClassify recomProductClassify=72;
+
+  //产品运费模版分页
+  ProductFreight productFreight=73;
+
+  //上传凭证
+  PutPolicyInfo putPolicyInfo=74;
+
+  //产品评论
+  ProductComment productComment=75;
+  //消息
+  MsMessage msMessage=76;
+
+  //VR主题
+  VRTopic vrTopic=77;
+
+  //VR主题店铺
+  VRTopicSpace  vrTopicSpace=78;
+
+  //VR主题店铺列表
+  VRTopicSpaceReply vrTopicSpaceReply=79;
+
+  //Vip会员模型
+  VipModelV1 vipModelV1=80;
+  //每日好店Title
+//  HMDayClassifyTitle dayClassifyTitle=81;
+
+  //直播预约信息
+  NoticeInfo noticeInfo=82;
+  //电子面单订单
+  ExterFaceOrder exterFaceOrder=83;
+  //店铺成长任务奖励
+  SpaceTaskReward spaceTaskReward=84;
+  //店铺成长任务
+  SpaceTasks spaceTasks=85;
+  //任务返回格式
+  SpaceTaskReply spaceTaskReply=86;
+
+  //邀请用户分页
+  UserInvitationReply userInvitationReply=87;
+
+  //邀请奖励分页
+  InvitationVipRewardReply invitationVipRewardReply=88;
+
+  //邀请用户信息
+  UserInvitation userInvitation=89;
+
+  //邀请奖励系你想
+  InvitationVipReward invitationVipReward=90;
+
+  //用户的邀请奖励中心
+  UserInvitationCenter userInvitationCenter=91;
+
+  //声音分类
+  AudioClassify audioClassify=92;
+
+  //声音信息
+  AudioInfo audioInfo=93;
+  //组团信息
+  GRActivityGroup grActivityGroup=94;
+  //拼团发布
+  GRActivityPublish grActivityPublish=95;
+  //拼团人员
+  GRActivityUsers grActivityUsers=96;
+  //组团信息分页
+  GRActivityGroupReply grActivityGroupReply=97;
+  //拼团库存
+  GRSKUInventory grSKUInventory=98;
+
+  //优惠卷信息
+  CouponInfo couponInfo=99;
+
+  //用户优惠卷信息
+  UserCoupon userCoupon=100;
+  //拼团活动分页
+  GRActivityPublishReply grActivityPublishReply=101;
+}
+message UserCoupon{
+
+  //用户ID
+  int64 userId = 2;
+
+  //劵ID
+  int64 couponId = 3;
+
+  //使用时间
+  int64 applyTime = 4;
+
+  //领劵时间
+  int64 receiveTime = 5;
+
+  //使用状态 -1已删除  0 未使用 1 使用
+  int32 usedStatus = 6;
+
+  //使用此优惠劵的订单Id
+  int64 orderId = 7;
+
+  //用户拥有的优惠劵列表
+  repeated UserCoupon userCoupons = 8;
+
+  //优惠劵信息
+  CouponInfo couponInfo = 9;
+}
+message GRActivityPublishReply{
+  //拼团活动
+  GRActivityPublish grActivityPublish=1;
+  //分页信息
+  PageInfo page=2;
+
+}
+message GRActivityGroupReply{
+  GRActivityGroup grActivityGroup=1;
+  //分页信息
+  PageInfo page=2;
+
+}
+message CouponInfo{
+  //优惠劵ID
+  int64 couponId = 1;
+
+  //劵名
+  string couponName = 2;
+
+  //优惠劵类型： 1无门槛劵 2满减劵 3折扣劵
+  int32 couponType = 3;
+
+  //优惠劵应用类型：1店铺通用 2指定商品 3.平台范围
+  int32 couponApplyType = 4;
+
+  //发行数量
+  int32 couponQuantity = 5;
+
+  //发行状态，-1商家已删除 1启用 2关闭（主要用户前端是否可以领劵判断和呈现）
+  int32 couponStatus = 6;
+
+  //折扣率（当折扣劵时判断）,单位百分比
+  int32 couponDiscountRate = 7;
+
+  //金额满足
+  double couponFilled = 8;
+
+  //优惠金额
+  double couponDiscountAmount = 9;
+
+  //领取的用户门槛 1.所有人 2.新用户  3.老用户
+  int32 receiveUserLimit = 10;
+
+  //添加时间
+  int64 addTime = 11;
+
+  //可以领劵的开始时间
+  int64 receiveStartTime = 12;
+
+  //可以领劵的结束时间
+  int64 receiveEndTime = 13;
+
+  //可以使用的开始时间
+  int64 applyStartTime = 14;
+
+  //可以使用的结束时间
+  int64 applyEndTime = 15;
+
+  //交易额满限制， 当receive_user_limit字段为老用户时判断
+  double receiveUserAmountLimit = 16;
+
+  //创建优惠劵的店铺ID（当Coupon_Apply_Type不等于3时存在）
+  int64 spaceId = 17;
+
+  //优惠劵列表
+  repeated CouponInfo couponInfos = 18;
+
+  //是否可以领取
+  bool isReceive = 19;
+
+  //优惠劵是否可用于此订单
+  bool available = 20;
+
+  //领取数量
+  int32 couponReceiveQuantity=21;
+
+  //使用数量
+  int32 applyReceiveQuantity=22;
+
+  //店铺名字
+  string spaceName=23;
+
+  //店铺头像
+  string headPicUrl=24;
+}
+message HMDayClassifyTitle{
+  //名称
+  string themeTitle = 1;
+
+  //主题颜色
+  string themeColor=2;
+
+  //图标图片信息
+  PictureInfo iconPictureInfo=3;
+
+  //图片
+  int64 iconPicId = 4;
+
+}
+message ExterFaceOrder{
+  //
+  int64 iD = 1;
+
+  //快递公司
+  string ecName = 2;
+
+  //电子面单单号
+  string exterfaceCode = 3;
+
+  //客户号
+  string customername = 4;
+
+  //订单号
+  string orderNumber = 5;
+
+  //单号状态1已获取2已取消3已回收
+  int32 status = 6;
+
+  //揽件网点
+  string meshPoint = 7;
+
+  //模板
+  string template = 8;
+
+  //
+  int64 spaceid = 9;
+
+  //获取时间
+  int64 createTime = 10;
+
+  //电子面单订单列表
+  repeated ExterFaceOrder exterFaceOrderList = 11;
+}
+message SpaceTaskReply{
+  bool isVip=1;
+  //任务奖励
+  repeated  SpaceTaskReward spaceTaskReward=2;
+
+}
+message UserInvitationReply {
+
+  //邀请用户列表
+  UserInvitation userInvitation=1;
+
+  //分页信息
+  PageInfo page=2;
+}
+message UserInvitation{
+  //邀请ID
+  int64 invitationId = 1;
+
+  //邀请人的上级，为0则是官方账号
+  int64 topUserId = 2;
+
+  //邀请人用户ID，为0则是官方账号
+  int64 userId = 3;
+
+  //被邀请人用户ID
+  int64 toUserId = 4;
+
+  //邀请时间
+  int64 addTime = 5;
+
+  //邀请来源  1:app注册 2:用户中心邀请绑定 3:web 4:微信 5：qq 6：微博
+  int32 invitationSource = 6;
+
+  //邀请列表
+  repeated UserInvitation userInvitations = 7;
+
+  //被邀请的用户信息
+  UserInfo toUserInfo=8;
+
+
+  //邀请人的用户信息
+  UserInfo userInfo=9;
+
+  //邀请人的上级用户信息
+  UserInfo topUserInfo=10;
+
+  //邀请人的邀请码
+  string invitationCode=11;
+
+}
+message UserInvitationCenter {
+
+  //用户名名
+  string userName=1;
+
+  //用户头像
+  string headUrl=2;
+
+  //邀请码
+  string invitationCode=3;
+
+  //团队总揽
+  int32 teamOverview=4;
+
+  //我的收益
+  double ownProfit=5;
+
+  // 1未开店  2未开通会员 3会员已过期 4当前是会员
+  int32 spaceStatus=6;
+
+  //是否开店
+  bool openSpace=7;
+}
+message SpaceTasks{
+  //编号
+  int32 taskId = 1;
+
+  //任务名称
+  string taskName = 2;
+
+  //任务简介
+  string taskDesc = 3;
+
+  //任务类型（1新手任务,2进阶任务）
+  int32 taskType = 4;
+
+  //任务选择(1直播时间，2成交单数,3销售额,4粉丝数,5推荐会员,6诚信保证金)
+  int32 taskChoice = 5;
+
+  //完成标准
+  string taskRequire = 6;
+
+  //创建时间
+  int64 createTime = 7;
+
+
+  //更新时间
+  int64 updateTime = 8;
+
+  //用户删除状态，0未删除，1删除
+  int32 deleted = 9;
+
+  //是否完成 0未完成 1已完成
+  int32 taskCompleted=10;
+
+  //完成进度
+  string taskSpeed=11;
+
+  //任务列表
+  repeated SpaceTasks spaceTasks=12;
+
+  //未完成图片
+  string taskImage = 13;
+  //已完成图片
+  string taskFinishimage=14;
+  //未完成图片ID
+  string taskImagePicid = 15;
+  //已完成图片ID
+  string taskFinishimagePicid = 16;
+}
+message SpaceTaskReward{
+  //用户ID
+  int64 spaceId = 1;
+
+  //会员任务类型
+  int32 taskTypeId = 2;
+
+  //任务奖励状态0 未领取 1已领取
+  int32 rewardStatus = 3;
+
+  //阶段任务是否完成 0未完成 1已完成
+  int32 completed = 4;
+
+  //任务开始时间
+  int64 startTime = 5;
+
+  //阶段任务完成时间
+  int64 endTime = 6;
+  //任务红豆奖励
+  string taskTypeReward=7;
+  //阶段任务列表
+  SpaceTasks spaceTasks=8;
+
+
+}
+message InvitationVipReward{
+  //返利ID
+  int64 rewardId = 1;
+
+  //添加时间
+  int64 addTime = 2;
+
+  //上级获利的用户ID
+  int64 userId = 3;
+
+  //获取上级用户的返利红豆数量
+  double rewardRedbean = 4;
+
+  //上级奖励状态  1.已奖励  0.未奖励
+  int32 rewardStatus = 5;
+
+  //上级获利用户的当前VIP等级 0：不是会员
+  int32 currrentVipType = 6;
+
+  //开通VIP的用户ID
+  int64 fromUserId = 7;
+
+  //开通VIP的等级
+  int32 fromVipType = 8;
+
+  //支付ID
+  string payId = 9;
+
+  //VIP订单ID
+  int64 orderId = 10;
+
+  //奖励描述
+  string rewardReason = 11;
+
+  //顶级获利的用户ID
+  int64 topUserId = 12;
+
+  //顶级用户的返利红豆数量
+  double topRewardRedbean = 13;
+
+  //顶级奖励状态  1.已奖励  0.未奖励
+  int32 topRewardStatus = 14;
+
+  //获利顶级用户的当前VIP等级 0：不是会员
+  int32 topCurrrentVipType = 15;
+
+  //邀请奖励列表
+  repeated InvitationVipReward invitationVipRewards = 16;
+
+  //被邀请的用户信息
+  UserInfo toUserInfo=17;
+
+  //推荐类型：1直推 2间推
+  int32 invitationType=18;
+
+}
+message MsMessage{
+  //主键
+  int64 messageId = 1;
+
+  //编号(订单号，运单号等)
+  string messageNumber = 2;
+
+  //消息标题
+  string messageTitle = 3;
+
+  //消息内容
+  string messageContent = 4;
+
+  //消息来源
+  string messageSource = 5;
+
+  //图片
+  string messageImage = 6;
+
+  //消息类型(1、下单，2、发货，3、签收，4、退款，5、申述)
+  int32 messageType = 7;
+
+  //消息类型ID(如下单存入订单ID，退款存入退款id)
+  int64 messageTypeId = 8;
+
+  //消息URL(如跳转页面URL)
+  string messageUrl = 9;
+
+  //消息推送者
+  int64 fromUserId = 10;
+
+  //消息接受者
+  int64 toUserId = 11;
+
+  //是否已读(1已读，0未读)
+  int32 isRead = 12;
+
+  //是否删除(1删除，0未删除)
+  int32 isDel = 13;
+
+  //是否推送(1推送，0未推送)
+  int32 isPush = 14;
+
+  //消息创建时间
+  int64 createTime = 15;
+
+  //消息更新时间
+  int64 updateTime = 16;
+
+  //推送时间
+  int64 pushTime = 17;
+
+  //举报次数
+  int32 reportCount = 18;
+
+  repeated MsMessage msMessagelist = 19;
+}
+message InvitationVipRewardAgentModel{
+  //奖励的VIP类型
+  int32 rewardVipType = 1;
+
+  //返利金额
+  double rewardAmount = 2;
+
+  //邀请奖励模型列表
+  repeated InvitationVipRewardAgentModel invitationVipRewardAgentModels = 3;
+
+}
+message InvitationVipRewardModel{
+  //获利的用户会员类型
+  int32 vipType = 1;
+
+  //获利类型  1.直推获利     2间推获利
+  int32 rewardType = 2;
+
+  //奖励的VIP类型
+  int32 rewardVipType = 3;
+
+  //返利金额
+  double rewardRedbean = 4;
+
+  //邀请奖励模型列表
+  repeated InvitationVipRewardModel invitationVipRewardModels = 5;
+
+}
+message InvitationVipRewardReply {
+
+  //邀请奖励列表
+  InvitationVipReward invitationVipReward=1;
+
+  //分页信息
+  PageInfo page=2;
+
+  //我的收益
+  double ownProfit=3;
+
+  //今日邀请
+  int32 todayInvitations=4;
+
+  //总邀请
+  int32 totalInvitations=5;
+}
+message VipModelV1 {
+
+  //会员类型，1.超级会员 2.VR会员 3.普通会员
+  int32 modleId=1;
+
+  //模板名称
+  string modelName=2;
+
+  //原价(划掉价格)
+  double modelOriginalPrice = 3;
+
+  //支付购买价格
+  double modelPrice=4;
+
+  //简介H5地址
+  string vipUrl=5;
+
+  //VIP简介
+  string vipDesc = 6;
+
+  //0 未开通 1 已开通
+  int32 vipStatus=7;
+
+  //到期时间
+  int64 vipEndTime=8;
+
+  //剩余时间转换成的金额
+  double modelDiscountPrice=9;
+
+  //模型列表
+  repeated VipModelV1 vipModel=10;
+
+  //协议地址
+  string agreementUrl=11;
+
+  //是否到期(2.即将到期，1.到期，0.未到期)
+  int32 isExpire=12;
+
+}
+message PutPolicyInfo{
+
+  //媒体id
+  int64 objectId=1;
+
+  //上传凭证
+  string putPolicy=2;
+
+  //上传地址
+  string uploadUrl=3;
+
+}
+message HMRecomProductClassify{
+  //
+  int32 classifyId = 1;
+
+  //名称
+  string classifyName = 2;
+
+  //标题
+  string classifyTitle = 3;
+
+  //最后编辑时间
+  int64 editTime = 4;
+
+  //图片
+  int64 picId = 5;
+
+  //排序
+  int32 sortNum = 6;
+
+  //0不可用  1可用
+  int32 status = 7;
+
+  //首页店铺分类列表
+  repeated HMRecomProductClassify recomProductClassifyList = 8;
+
+  //图片信息
+  PictureInfo pictureInfo=9;
+
+  //在线数
+  int64 onLineCount = 10;
+
+  //图片
+  int64 iconPicId = 11;
+
+  //图标图片信息
+  PictureInfo iconPictureInfo=12;
+
+  //推荐产品列表
+  ProductInfo productInfo=13;
+
+  //主题颜色
+  string themeColor=14;
+
+  //是否置顶
+  int32 top = 15;
+
+}
+message ProductFreightReply{
+  //列表
+  ProductFreight productFreight=1;
+
+  //分页信息
+  PageInfo page=2;
+}
+message DSPOrderReply{
+  //DSP推广订单列表
+  DSPOrderInfo DSPOrderInfo=1;
+  //分页信息
+  PageInfo page=2;
+}
+message DSPOrderInfo{
+  int64 orderId = 1;
+  //订单号
+  string orderNo = 2;
+  //订单提交时间
+  int64 orderTime = 3;
+  //0 未支付 1 已支付
+  int32 orderStatus = 4;
+  //店铺ID
+  int64 spaceId = 5;
+  //用户ID
+  int64 userId = 6;
+  //订单价格
+  double orderAmount = 7;
+  //平台支付的价格
+  double platformAmount = 8;
+  //订单描述
+  string orderDesc = 9;
+  //推广状态  1成功 0未开始推广   -1失败 2推广中
+  int32 dspStatus = 10;
+  //资源提供方订单ID
+  string channelOrderId = 11;
+  //支付ID
+  string payId = 12;
+  //1.支付宝  2.微信 6.H5微信
+  int32 payType = 13;
+  //支付时间
+  int64 payTime = 14;
+  //投放地区标签
+  string areaLable = 15;
+  //投放地区值
+  string areaValue = 16;
+  //投放图片ID
+  int64 landingPagePicId = 17;
+  //投放图片具体地址
+  string landingPagePicUrl = 18;
+  //每日期望pv （单位：CPM 如：100 指100000PV）
+  int32 everydayPv = 19;
+  //开始投放时间
+  int64 startDate = 20;
+  //结束投放时间
+  int64 endDate = 21;
+  //是否全天投放（0：选择时段投放 1：全天投放）
+  int32 allDayOrNot = 22;
+  //投放时间（all_day_or_not为0时，必填，格式为 日:点 如 1：1，2，3；2：；3：；4：3；5：；6：；7： 表示周一凌晨一点、凌晨两点、凌晨三点和周四凌晨三点投放。）
+  string loopAtt = 23;
+  //曝光量
+  int64 uvCount = 24;
+  //记录数
+  int64 totalCount = 25;
+  //点击量
+  int64 cvCount = 26;
+  //总共推广时间（单位：小时）
+  int32 allTime = 27;
+  //推广聚道  1.微信  2.其他网络  3.微信和其他网络
+  int32 channelType = 28;
+  //DSP推广订单列表
+  repeated DSPOrderInfo DSPOrderInfoList = 29;
+  //推广图片信息
+  PictureInfo landingPagePictureInfo=30;
+  //dsp订单退款信息
+  DSPOrderRefundRecord dspOrderRefundRecord=31;
+  //落地页
+  string stuffText=32;
+}
+message DSPOrderRefundRecord{
+  //退款ID
+  int64 refundId = 1;
+  //申请编号
+  string refundNum = 2;
+  //订单ID
+  int64 orderId = 3;
+  //退款状态 1  成功  0 失败
+  int32 refundStatus = 4;
+  //退款详细描述
+  string refundDesc = 5;
+  //退款时间
+  int64 refundTime = 6;
+  //DSP详情
+  string dspDesc = 7;
+  //订单退款列表
+  repeated DSPOrderRefundRecord dspOrderRefundRecord = 8;
+}
+message FlowOrderReply{
+  //流量订单列表
+  FlowOrder flowOrder=1;
+  //分页信息
+  PageInfo page=2;
+}
+message DataVersion{
+  //数据版本ID
+  int32 dataId = 1;
+
+  //数据版本名字
+  string dataName = 2;
+
+  //
+  int32 dataVersion = 3;
+
+  //1.全景图片  2.地区  3.关键字
+  string dataType = 4;
+
+  //修改时间
+  int64 modifyTime = 5;
+
+  //列表
+  repeated DataVersion dataVersions = 6;
+
+}
+message VipModel {
+  //会员类型，1：保证金基础版 2：超级会员 3：厂家入驻
+  int32 vipType=1;
+  //h5地址
+  string htmlUrl=2;
+  //协议描述
+  string agreementDesc=3;
+  //协议地址
+  string agreementUrl=4;
+  //协议标题
+  string agreementTitle=5;
+  //顶部标题
+  string title=6;
+  //vip价格
+  double vipPrice=7;
+  //模块信息
+  repeated VipModel vipModel=8;
+  //是否可退
+  bool isReturn=9;
+  //VIP到期时间
+  int64 vipEndTime=10;
+  //描述
+  string description=11;
+  //vip状态  0未开通，1正常使用2即将过期3已过期
+  int32 vipStatus=12;
+}
+message KeywordsShielding{
+  //
+  int32 shieldingId = 1;
+  //禁言内容
+  string shieldingValue = 2;
+  //修改时间
+  int64 modifyTime = 3;
+  //1 可用 0不可用
+  int32 status = 4;
+  //列表
+  repeated KeywordsShielding keywordsShielding = 5;
+}
+message DraftProductReply {
+  // 产品信息
+  DraftProduct draftProduct = 1;
+  // 分页信息
+  PageInfo pageInfo = 2;
+}
+message DraftProduct{
+//产品ID
+int64 productId = 1;
+//用户ID
+int64 userId = 2;
+//店铺ID
+int64 spaceId = 3;
+//活动商品分数
+int32 score = 4;
+//商品的活动原价
+double eventPrice = 5;
+//活动ID
+int64 eventId = 6;
+//舔你骄傲
+int64 addTime = 7;
+//编辑时间
+int64 editTime = 8;
+//活动商品列表
+repeated DraftProduct draftProductList = 9;
+//商品详情
+ProductInfo productInfo = 10;
+}
+message CustomerService{
+  //
+  int32 serviceId = 1;
+  //客服名字
+  string serviceName = 2;
+  //图片ID
+  int64 picId = 3;
+  //联系电话
+  string servicePhone = 4;
+  //1.启用  0不启用（只能有一个启用）
+  int32 status = 5;
+  //列表
+  repeated CustomerService customerService = 6;
+  //二维码图片信息
+  PictureInfo pictureInfo=7;
+}
+message FlowOrder{
+  int64 orderId = 1;
+  //订单号
+  string orderNo = 2;
+  //订单提交时间
+  int64 orderTime = 3;
+  //0 未支付 1 已支付
+  int32 orderStatus = 4;
+  //店铺ID
+  int64 spaceId = 5;
+  //用户ID
+  int64 userId = 6;
+  //订单价格
+  double orderAmount = 7;
+  //平台支付的价格
+  double platformAmount = 8;
+  //订单描述
+  string orderDesc = 9;
+  //流量规格描述
+  string modelDesc = 10;
+  //流量充值平台是否成功充值流量  1成功 0未成功 -1失败 2充值中
+  int32 rechargeStatus = 11;
+  //资源提供方订单ID
+  string channelOrderId = 12;
+  //充值的手机号码
+  string phoneNo = 13;
+  //供应商产品ID
+  string prodId = 14;
+  //支付ID
+  string payId = 15;
+  //充值到账时间
+  int64 rechargeTime = 16;
+  //1.支付宝  2.微信 6.H5微信
+  int32 payType = 17;
+  //平台处理时间
+  int64 platformTime = 18;
+  //运营类型，1：移动 2：电信 3：联通
+  int32 operatorType = 19;
+  //支付时间
+  int64 payTime = 20;
+  repeated FlowOrder flowOrderList = 21;
+  //退款信息
+  FlowOrderRefundRecord flowOrderRefundRecord=22;
+}
+message FlowOrderPay{
+  //主键ID
+  string payId = 1;
+
+  //订单id
+  int64 orderId = 2;
+
+  //支付金额
+  double payMoney = 3;
+
+  //支付时间
+  int64 payTime = 4;
+
+  //支付类型 阿里 1  微信 2    4 apple  5 余额
+  int32 payType = 5;
+
+  //支付详情
+  string payDesc = 6;
+
+  //支付的账户
+  string payAccount = 7;
+
+  //状态 0 未付款 1 付款
+  int32 status = 8;
+
+  //用户Id
+  int64 userId = 9;
+
+  //店铺ID
+  int64 spaceId = 10;
+
+  //支付订单号
+  string tradeNo = 11;
+
+  //流量充值模型列表
+  repeated FlowOrderPay flowOrderPayList = 12;
+
+}
+message FlowOrderRefundRecord{
+  //退款ID
+  int64 refundId = 1;
+  //申请编号
+  string refundNum = 2;
+  //订单ID
+  int64 orderId = 3;
+  //退款状态 1  成功  0 失败
+  int32 refundStatus = 4;
+  //退款详细描述
+  string refundDesc = 5;
+  //退款时间
+  int64 refundTime = 6;
+  //流量充值详情
+  string rechargeDesc = 7;
+  //流量充值模型列表
+  repeated FlowOrderRefundRecord flowOrderRefundRecordList = 8;
+}
+message FlowModel{
+  //充值模型ID
+  int32 modelId = 1;
+  //流量规格描述
+  string modelDesc = 2;
+  //
+  double modelPrice = 3;
+  //
+  int64 editTime = 4;
+  //折扣（0.1-1）
+  double discountRate = 5;
+  //是否使用折扣价 1.使用 0.不使用
+  int32 isDiscount = 6;
+  //模型排序
+  int32 modelSort = 7;
+  //是否可用 0不可用  1可用
+  int32 modelStatus = 8;
+  //供应商产品ID
+  string prodId = 9;
+  //运营类型，1：移动 2：电信 3：联通
+  int32 operatorType = 10;
+  //流量包原价
+  double originaPrice = 11;
+  //流量充值模型列表
+  repeated FlowModel flowModelList  = 12;
+}
+message DraftUserReply{
+  //活动列表
+  DraftUser draftUser=1;
+  //分页信息
+  PageInfo page=2;
+}
+message DraftUser{
+  //用户ID
+  int64  userId = 1;
+  //店铺Id
+  int64 spaceId = 2;
+  //添加时间
+  int64 addTime = 3;
+  //添加人ID
+  int64 adminId = 4;
+  //分数
+  int32 score = 5;
+  //活动ID
+  int64 eventId = 6;
+  //活动用户列表
+  string verifyName = 7;
+  //活动用户直播信息
+  string number = 8;
+  //活动用户信息
+  UserInfo userInfo=11;
+  repeated  DraftUser draftUser  = 9;
+  LiveInfo liveInfo=10;
+  //是否投过票
+  bool isVote=12;
+  //排名
+  int32 ranking=13;
+  int64 orderNumber =14 ;
+  //票数
+  int64 voteNumber = 15;
+  //上一名
+  int64 lastScore = 16;
+  //是否投过票H5
+  int32 isVoteH5=17;
+}
+message EventInfo{
+  //活动ID
+  int64 eventId = 1;
+  //活动名称
+  string eventName = 2;
+  //添加时间
+  int64 editTime = 3;
+  //后台添加人员ID
+  int32 adminId = 4;
+  //后台添加人员名称
+  string adminName = 5;
+  //活动开始时间
+  int64 beginTime = 6;
+  //活动结束时间
+  int64 endTime = 7;
+  //活动简介
+  string eventInfo = 8;
+  //活动H5地址
+  string eventUrl = 9;
+  //图片地址
+  string eventPicUrl = 10;
+  //图片跳转地址
+  string eventPicForwardUrl = 11;
+  //活动分享地址
+  string shareUrl = 12;
+  //活动列表
+  repeated EventInfo eventInfoList = 13;
+  //总票数
+  int64 voters = 14;
+  //在线数
+  int64 onLineCount = 15;
+}
+message DepositRefund{
+  //记录ID
+  int32  refundId = 1;
+  //申请编号
+  string refundNum = 2;
+  //店铺ID
+  int64  spaceId = 3;
+  //店铺名称
+  string spaceName = 4;
+  //买家ID
+  int64  userId = 5;
+  //买家会员名
+  string userName = 6;
+  //退款金额(暂时用不着，全额退款)
+  double refundAmount = 7;
+  //添加时间
+  int64  refundTime = 8;
+  //退款原因内容
+  string refundDetail = 9;
+  //申请状态:0为待管理员处理,1成功,-1失败,默认为0
+  int32 refundStatus = 10;
+  //管理员处理时间,默认为0
+  int64  adminTime = 11;
+  //管理员处理结果原因
+  string adminDetail = 12;
+  //银行卡ID
+  int32 bankCardId = 13;
+  //保证金退款列表
+  repeated DepositRefund depositRefund  = 14;
+  //提现用户银行卡信息
+  UserBankCard userBankCard=15;
+}
+message FreightInfo{
+  int64 faId = 1;
+  int64 templateId = 2;
+  AreaInfo areaInfo = 3;
+  double firstUnit = 4;
+  double firstPrice = 5;
+  double addUnit = 6 ;
+  double addPrice = 7 ;
+  int32 pinkageType = 8;
+  int32 goodsNumber = 9;
+  double orderAmount = 10 ;
+  repeated FreightInfo freightList = 11;
+}
+
+message ProductFreight{
+  int64 templateId = 1;
+  string templateName = 2;
+  AreaInfo areaInfo = 3;
+  int64 deliveryTime = 4;
+  int32 pricingType = 5;
+  int32 pinkageStatus = 6;
+  int64 spaceId = 7;
+  int32 selfService = 8;
+  int32 deliveryHome = 9;
+  FreightInfo freightInfo = 10;
+  repeated ProductFreight productFreight = 11;
+}
+
+message SpaceFreight{
+  int64 templateId = 1;
+  string templateName = 2;
+  int64 spaceId = 3;
+  int32 templateStatus = 4;
+  FreightInfo freightInfo = 5;
+  repeated SpaceFreight spaceFreight = 6;
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+message BaseRequest{
+
+	//用户标识 
+	string token=1; 
+   
+   	//加密串
+	string p=2;//加密P  
+   
+   	//签名
+	string sign=3;
+   
+   	//map参数
+	map<string, string> SpareParameter= 4; 
+}
+
+
